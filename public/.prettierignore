@@ -1,0 +1,11 @@
+# Ignore artifacts:
+build/
+dist/
+.next/
+out/
+
+# Ignore node_modules
+node_modules/
+
+# Ignore other files or directories
+.git/
