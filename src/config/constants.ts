@@ -1,35 +1,5 @@
 const PROJECTS = [
   {
-    title: "College Disha",
-    name: "collegeDisha",
-    link: "https://www.collegedisha.com/",
-    image: "/images/projects/collegeDisha.png",
-  },
-  {
-    title: "Distinct",
-    name: "distinct",
-    link: "https://distinct.so",
-    image: "/images/projects/distinct.png",
-  },
-  {
-    title: "Sosh Nft",
-    name: "soshNft",
-    link: "https://www.soshnft.io/",
-    image: "/images/projects/soshNft.png",
-  },
-  {
-    title: "GamaVrs",
-    name: "gamavers",
-    link: "https://gamavrs.com",
-    image: "/images/projects/gamaVrs.png",
-  },
-  {
-    title: "Moments NFT",
-    name: "momentNft",
-    link: "https://gamavrs.com/moments-auction/about",
-    image: "/images/projects/momentNft.png",
-  },
-  {
     title: "WPT Play",
     name: "wptPlay",
     link: "https://play.wptgo.com/",
@@ -40,6 +10,12 @@ const PROJECTS = [
     name: "casinoLobby",
     link: "https://casino-lobby-dev.a5labsapp.co/",
     image: "/images/projects/casinoLobby.png",
+  },
+  {
+    title: "Casino CMS",
+    name: "casinoCms",
+    link: "https://docs.google.com/document/d/10PfbbCIEF0SC020m3R_vBd6C0EKNwCbul2E_X1dXxtw/",
+    image: "/images/projects/casinoCms.png",
   },
   {
     title: "WPT Global",
@@ -53,6 +29,7 @@ const PROJECTS = [
     link: "https://docs.google.com/document/d/1QyWUGF8XigvNtZ_bsidATKtW4VsrUUhNhj3JsCe8F3w",
     image: "/images/projects/wptgCms.png",
   },
+
   {
     title: "WPTG Promo",
     name: "wptgPromo",
@@ -72,10 +49,40 @@ const PROJECTS = [
     image: "/images/projects/wptCms.png",
   },
   {
-    title: "Casino CMS",
-    name: "casinoCms",
-    link: "https://docs.google.com/document/d/10PfbbCIEF0SC020m3R_vBd6C0EKNwCbul2E_X1dXxtw/",
-    image: "/images/projects/casinoCms.png",
+    title: "My Portfolio",
+    name: "devPortfolio",
+    link: "/",
+    image: "/images/projects/devPortfolio.png",
+  },
+  {
+    title: "Sosh Nft",
+    name: "soshNft",
+    link: "https://www.soshnft.io/",
+    image: "/images/projects/soshNft.png",
+  },
+  {
+    title: "Distinct",
+    name: "distinct",
+    link: "https://distinct.so",
+    image: "/images/projects/distinct.png",
+  },
+  {
+    title: "GamaVrs",
+    name: "gamavers",
+    link: "https://gamavrs.com",
+    image: "/images/projects/gamaVrs.png",
+  },
+  {
+    title: "Moments NFT",
+    name: "momentNft",
+    link: "https://gamavrs.com/moments-auction/about",
+    image: "/images/projects/momentNft.png",
+  },
+  {
+    title: "College Disha",
+    name: "collegeDisha",
+    link: "https://www.collegedisha.com/",
+    image: "/images/projects/collegeDisha.png",
   },
 ];
 
