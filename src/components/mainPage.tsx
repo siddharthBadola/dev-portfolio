@@ -7,10 +7,10 @@ import Slider from "@/components/slider";
 import { SECTIONS } from "@/config/appConfig";
 
 const SECTIONS_COMPONENTS = [
-  // { path: SECTIONS.HOME, component: Home },
-  // { path: SECTIONS.ABOUT, component: About },
-  // { path: SECTIONS.SKILLS, component: Skills },
-  // { path: SECTIONS.PROJECTS, component: Projects },
+  { path: SECTIONS.HOME, component: Home },
+  { path: SECTIONS.ABOUT, component: About },
+  { path: SECTIONS.SKILLS, component: Skills },
+  { path: SECTIONS.PROJECTS, component: Projects },
   { path: SECTIONS.CONTACT, component: Contact },
 ];
 

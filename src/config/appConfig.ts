@@ -1,10 +1,10 @@
 import { SUBJECT_DATA } from "./constants";
 
 export const SECTIONS = {
-  // HOME: "/home",
-  // ABOUT: "/about",
-  // PROJECTS: "/projects",
-  // SKILLS: "/skills",
+  HOME: "/home",
+  ABOUT: "/about",
+  PROJECTS: "/projects",
+  SKILLS: "/skills",
   CONTACT: "/contact",
 };
 
@@ -13,18 +13,18 @@ export const LINKS: {
   href: string;
   options?: Record<string, string>;
 }[] = [
-  // {
-  //   name: "Home",
-  //   href: SECTIONS.HOME,
-  // },
-  // {
-  //   name: "About",
-  //   href: SECTIONS.ABOUT,
-  // },
-  // {
-  //   name: "Projects",
-  //   href: SECTIONS.PROJECTS,
-  // },
+  {
+    name: "Home",
+    href: SECTIONS.HOME,
+  },
+  {
+    name: "About",
+    href: SECTIONS.ABOUT,
+  },
+  {
+    name: "Projects",
+    href: SECTIONS.PROJECTS,
+  },
   {
     name: "Resume",
     href: SUBJECT_DATA.resume,
@@ -33,10 +33,10 @@ export const LINKS: {
       rel: "noreferrer",
     },
   },
-  // {
-  //   name: "Skills",
-  //   href: SECTIONS.SKILLS, // Refer to skills section
-  // },
+  {
+    name: "Skills",
+    href: SECTIONS.SKILLS, // Refer to skills section
+  },
   {
     name: "Contact",
     href: SECTIONS.CONTACT,
