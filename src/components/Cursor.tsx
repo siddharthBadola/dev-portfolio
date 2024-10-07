@@ -53,12 +53,6 @@ const Cursor: React.FC = () => {
     const handleMouseLeave = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const relatedTarget = e.relatedTarget as HTMLElement;
-      console.log(
-        "event target leave",
-        relatedTarget?.tagName,
-        prevCursorVariant,
-        target?.classList
-      );
 
       if (
         (!relatedTarget?.closest(".cursor-pointer") &&

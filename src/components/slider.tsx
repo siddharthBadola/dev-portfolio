@@ -9,7 +9,6 @@ import cn from "@/lib/utils";
 import { useRouter } from "next/router";
 
 type SliderProps = {
-  animationType?: "slide" | "fade";
   children: React.ReactNode[];
 };
 
@@ -25,6 +24,7 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
 
     const currentIndex = _slides?.findIndex((item) => item?.id === sectionId);
 
+    if (currentIndex === -1) return [_slides, 0];
     return [_slides, currentIndex];
   }, [children, sectionId]);
 
@@ -56,7 +56,9 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
 
   useEffect(() => {
     const currentIndex = slides?.findIndex((item) => item?.id === sectionId);
-    setCurrentSlide(currentIndex);
+    if (currentIndex !== -1) {
+      setCurrentSlide(currentIndex);
+    }
   }, [sectionId]);
 
   return (
