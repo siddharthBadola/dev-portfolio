@@ -12,6 +12,7 @@ interface ButtonProps {
   download?: boolean | string;
   icon?: boolean;
   buttonClassName?: string;
+  disabled?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -21,9 +22,28 @@ const Button: React.FC<ButtonProps> = ({
   buttonClassName = "",
   className,
   icon = false,
+  disabled,
+  onClick,
+  download,
+  target,
+  rel,
   ...props
 }) => {
-  const elementProps = as === "a" ? { href, role: "button", ...props } : props;
+  const elementProps =
+    as === "a"
+      ? {
+          role: "button",
+          ...(!disabled
+            ? {
+                href,
+                download,
+                target,
+                rel,
+              }
+            : {}),
+          ...props,
+        }
+      : { onClick: !disabled ? onClick : undefined, ...props };
 
   return (
     <div
@@ -38,10 +58,11 @@ const Button: React.FC<ButtonProps> = ({
           className: cn(
             "inline-flex items-center justify-center text-white border-2 border-primary bg-charcoal transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 cursor-pointer",
             "group-hover:translate-x-1.5 group-hover:-translate-y-1.5",
-
+            disabled ? "opacity-60" : "",
             icon ? "p-4" : "px-4 py-2",
             buttonClassName
           ),
+          disabled,
           ...elementProps,
         },
         children

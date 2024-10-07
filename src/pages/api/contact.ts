@@ -1,11 +1,5 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-
 import { mailOptions, transporter } from "@/config/nodemailer";
 
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 const handler = async (req: any, res: any) => {
   if (req.method === "POST") {
     const data = req.body;

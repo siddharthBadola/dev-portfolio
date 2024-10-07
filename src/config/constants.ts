@@ -101,17 +101,19 @@ const SKILLS = [
   { name: "CSS", value: "/images/techStack/CSS3.svg" },
 ];
 
+const EMAIL_ID = "devashishtrehan@gmail.com";
+
 export const SUBJECT_DATA = {
   name: "Devashish Trehan",
   image: "/images/dev-1.png",
   address: "",
   mobile_number: "9548727092",
-  email_id: "devtrehan.dt@gmail.com",
+  email_id: EMAIL_ID,
   resume: "/files/devashish_resume.pdf",
   social_media_links: {
     github: "https://github.com/devashish931",
     linkedin: "https://www.linkedin.com/in/devashish-trehan-9347a1173/",
-    email: "devtrehan.dt@gmail.com",
+    email: EMAIL_ID,
   },
   projects: PROJECTS,
   Skills: SKILLS,

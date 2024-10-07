@@ -8,6 +8,7 @@ import Button from "./button";
 import SectionLayout from "./sectionLayout";
 import { SectionProps } from "@/lib/types";
 import Link from "next/link";
+import { FaSpinner } from "react-icons/fa";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email().required("Please input email"),
@@ -60,11 +61,13 @@ const Contact = (props: SectionProps) => {
             initialValues={initialValues}
             enableReinitialize
             validationSchema={validationSchema}
-            onSubmit={async (values, { resetForm }) => {
+            onSubmit={async (values, { resetForm, setSubmitting }) => {
               console.log("hello", values);
               try {
+                setSubmitting(true);
                 const res = await sendContactForm(values);
                 console.log(res, "res");
+                setSubmitting(false);
                 if (res.status === 200) {
                   toast.success("Email Sent Successfully");
                 } else {
@@ -77,7 +80,7 @@ const Contact = (props: SectionProps) => {
               resetForm();
             }}
           >
-            {({ errors, touched, handleSubmit }) => (
+            {({ errors, touched, handleSubmit, isSubmitting }) => (
               <Form onSubmit={handleSubmit} className="flex flex-col gap-8 p-0">
                 <div className="flex flex-col gap-1">
                   <label className="font-semibold">Name:</label>
@@ -115,7 +118,16 @@ const Contact = (props: SectionProps) => {
                     <span className="px-4 text-red-500">{errors.message}</span>
                   )}
                 </div>
-                <Button>Submit</Button>
+                <Button disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      {" "}
+                      <FaSpinner className="mr-1 animate-spin" /> Submitting{" "}
+                    </>
+                  ) : (
+                    "Submit"
+                  )}
+                </Button>
               </Form>
             )}
           </Formik>

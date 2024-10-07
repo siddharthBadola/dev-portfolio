@@ -6,9 +6,13 @@ import SocialMediaButtons from "./socialMediaButtons";
 import Button from "./button";
 import NavLink from "./navLink";
 import { LINKS } from "@/config/appConfig";
+import { useRouter } from "next/router";
+import cn from "@/lib/utils";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const router = useRouter();
+  const { sectionId } = router.query;
 
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -42,7 +46,11 @@ const Navbar = () => {
                 <NavLink
                   key={idx}
                   href={href}
-                  className="flex h-20 items-center px-3 lg:px-5"
+                  className={cn("flex h-20 items-center px-3 lg:px-5", {
+                    active: sectionId
+                      ? sectionId === href?.replace("/", "")
+                      : !idx,
+                  })}
                   {...(options || {})}
                 >
                   {name}

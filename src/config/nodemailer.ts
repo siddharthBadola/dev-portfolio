@@ -2,11 +2,12 @@ import { env } from "@/env.mjs";
 import nodemailer from "nodemailer";
 
 export const transporter = nodemailer.createTransport({
-  service: "gmail",
   auth: {
+    type: "LOGIN",
     user: env?.NODEMAILER_EMAIL || "",
     pass: env?.NODEMAILER_PW || "",
   },
+  service: "gmail",
 });
 
 export const mailOptions = {
