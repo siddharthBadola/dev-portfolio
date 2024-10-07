@@ -95,8 +95,8 @@ const SKILLS = [
 ];
 
 export const SUBJECT_DATA = {
-  name: "Test Subject",
-  image: "/images/dev-12.png",
+  name: "Devashish Trehan",
+  image: "/images/dev-1.png",
   address: "",
   mobile_number: "9548727092",
   email_id: "devtrehan.dt@gmail.com",
