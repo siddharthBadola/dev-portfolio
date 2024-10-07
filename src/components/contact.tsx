@@ -70,6 +70,7 @@ const Contact = (props: SectionProps) => {
                 setSubmitting(false);
                 if (res.status === 200) {
                   toast.success("Email Sent Successfully");
+                  resetForm();
                 } else {
                   toast.error("Something went wrong!");
                 }
@@ -77,7 +78,6 @@ const Contact = (props: SectionProps) => {
                 console.log(err, "sdgj");
                 toast.error("Something went wrong!");
               }
-              resetForm();
             }}
           >
             {({ errors, touched, handleSubmit, isSubmitting }) => (
