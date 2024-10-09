@@ -114,6 +114,7 @@ export const SUBJECT_DATA = {
     github: "https://github.com/devashish931",
     linkedin: "https://www.linkedin.com/in/devashish-trehan-9347a1173/",
     email: EMAIL_ID,
+    buyMeCoffee: "https://www.buymeacoffee.com/devTrehan",
   },
   projects: PROJECTS,
   Skills: SKILLS,

@@ -44,7 +44,7 @@ const Home = (props: SectionProps) => {
           consistently delivering top-notch code while remaining well-informed
           about the most recent advancements in front-end development practices.
         </p>
-        <SocialMediaButtons className="m-auto mt-16" />
+        <SocialMediaButtons className="m-auto mt-16" showBuyMeCoffeeButton />
       </div>
       <div className="order-1 my-8 lg:order-2">
         <div className="bevel-clip mx-auto flex w-fit items-center justify-center bg-primary bg-opacity-20 p-3">

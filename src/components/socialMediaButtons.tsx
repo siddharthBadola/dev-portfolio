@@ -4,17 +4,21 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import Button from "./button";
 import { SUBJECT_DATA } from "@/config/constants";
 import cn from "@/lib/utils";
+import Image from "next/image";
 
 interface SocialMediaButtonsProps {
   className?: string;
   buttonClassName?: string;
+  showBuyMeCoffeeButton?: boolean;
 }
 
 const SocialMediaButtons = ({
   className = "",
   buttonClassName = "",
+  showBuyMeCoffeeButton = false,
 }: SocialMediaButtonsProps) => {
-  const { social_media_links } = SUBJECT_DATA;
+  const { github, linkedin, email, buyMeCoffee } =
+    SUBJECT_DATA?.social_media_links || {};
 
   return (
     <div
@@ -25,7 +29,7 @@ const SocialMediaButtons = ({
     >
       <Button
         as="a"
-        href={social_media_links.github}
+        href={github}
         target="_blank"
         rel="noreferrer"
         icon
@@ -35,7 +39,7 @@ const SocialMediaButtons = ({
       </Button>
       <Button
         as="a"
-        href={social_media_links.linkedin}
+        href={linkedin}
         target="_blank"
         rel="noreferrer"
         icon
@@ -45,13 +49,23 @@ const SocialMediaButtons = ({
       </Button>
       <Button
         icon
-        onClick={() =>
-          (window.location.href = `mailto:${social_media_links.email}`)
-        }
+        onClick={() => (window.location.href = `mailto:${email}`)}
         buttonClassName={buttonClassName}
       >
         <AiOutlineMail />
       </Button>
+      {showBuyMeCoffeeButton && buyMeCoffee ? (
+        <Button as="a" href={buyMeCoffee} target="_blank">
+          <Image
+            src="/images/icons/buyMeCoffee.svg"
+            alt="Buy Me A Coffee"
+            width={20}
+            height={28}
+            className="mr-2"
+          />{" "}
+          Buy me a Coffee
+        </Button>
+      ) : null}
     </div>
   );
 };
