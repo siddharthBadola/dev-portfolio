@@ -42,9 +42,9 @@ const Navbar = () => {
         <div>
           <ul className="-lg:mx-5 -mx-3 hidden items-center md:flex">
             {LINKS.map(({ name, href, options }, idx) => (
-              <li>
+              <li  key={idx}>
                 <NavLink
-                  key={idx}
+                 
                   href={href}
                   className={cn("flex h-20 items-center px-3 lg:px-5", {
                     active: sectionId
@@ -92,9 +92,9 @@ const Navbar = () => {
           <div className="flex flex-col py-4">
             <ul className="uppercase">
               {LINKS.map(({ name, href, options }, idx) => (
-                <li>
+                <li  key={idx}>
                   <NavLink
-                    key={idx}
+                   
                     href={href}
                     className="block py-4 text-sm"
                     {...(options || {})}

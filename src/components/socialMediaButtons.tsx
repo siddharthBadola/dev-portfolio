@@ -57,7 +57,7 @@ const SocialMediaButtons = ({
       {showBuyMeCoffeeButton && buyMeCoffee ? (
         <Button as="a" href={buyMeCoffee} target="_blank">
           <Image
-            src="/images/icons/buyMeCoffee.svg"
+            src="/images/icons/buyMeCoffee.png"
             alt="Buy Me A Coffee"
             width={20}
             height={28}
