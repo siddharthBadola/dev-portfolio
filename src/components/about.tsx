@@ -16,18 +16,16 @@ const About = (props: SectionProps) => {
         <p>
           As a dedicated Frontend Developer, I am deeply passionate and
           enthusiastic about crafting exceptional web applications. With a solid
-          background in web development spanning over two years, I have
+          background in web development spanning over 4+ years, I have
           successfully worked on a range of real-world projects, showcasing my
           proficiency in HTML, CSS, JavaScript, ReactJS, NextJS, TypeScript,
           Redux, Web3.js, React Context API.
         </p>
         <p>
-          My educational foundation includes a Masters of Computer Applications,
+          My educational foundation includes a Bachelors of Computer Applications,
           providing me with a well-rounded understanding of the field.
-          Additionally, I have gained invaluable experience as a React Developer
-          in the dynamic realm of Blockchain Technology. What sets me apart is
-          my innate ability to quickly grasp new concepts, coupled with a keen
-          problem-solving mindset. My focus is firmly fixed on achieving
+          Additionally. What sets me apart is my innate ability to quickly grasp new concepts,
+          coupled with a keen problem-solving mindset. My focus is firmly fixed on achieving
           results, and I approach challenges with an unwavering determination to
           excel. My thirst for knowledge drives me to continually learn and
           adapt to emerging technologies, ensuring that my skillset remains
