@@ -4,19 +4,49 @@ import React, {
   useRef,
   useMemo,
   ReactElement,
+  useCallback,
 } from "react";
 import cn from "@/lib/utils";
 import { useRouter } from "next/router";
+import isFinite from "lodash/isFinite";
+import { SliderBtnActions } from "@/lib/types";
 
-type SliderProps = {
+export const SLIDER_BTN_ACTIONS = { NEXT: "next", PREV: "prev" } as const;
+
+type BaseSliderPros = {
   children: React.ReactNode[];
+  slideInitialIndex?: number;
 };
 
-const Slider: React.FC<SliderProps> = ({ children }) => {
+type SliderProps =
+  | (BaseSliderPros & {
+      onSlideChange?: (slideIdx: number) => void;
+      activeSlideIndex?: undefined;
+    })
+  | (BaseSliderPros & {
+      activeSlideIndex: number;
+      onSlideChange: (action: SliderBtnActions) => void;
+    });
+
+const getInitialIndex = (activeIndex?: number, initialIndex?: number) =>
+  activeIndex && isFinite(activeIndex)
+    ? activeIndex
+    : initialIndex && isFinite(initialIndex)
+    ? initialIndex
+    : 0;
+
+const Slider: React.FC<SliderProps> = ({
+  children,
+  onSlideChange,
+  slideInitialIndex = 0,
+  activeSlideIndex,
+}) => {
   const router = useRouter();
   const { sectionId } = router.query;
 
-  const [slides, slideInitialIndex] = useMemo(() => {
+  const isControlled = typeof activeSlideIndex === "number";
+
+  const [slides] = useMemo(() => {
     const _slides = React.Children.toArray(children)?.map((child) => ({
       Slide: child,
       id: (child as ReactElement)?.props?.id?.replace("/", ""),
@@ -28,38 +58,60 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
     return [_slides, currentIndex];
   }, [children, sectionId]);
 
-  const [currentSlide, setCurrentSlide] = useState<number>(slideInitialIndex);
-  const [visibleSlide, setVisibleSlide] = useState<number>(slideInitialIndex);
+  const [currentSlide, setCurrentSlide] = useState<number>(() =>
+    getInitialIndex(activeSlideIndex, slideInitialIndex)
+  );
+  const [visibleSlide, setVisibleSlide] = useState<number>(() =>
+    getInitialIndex(activeSlideIndex, slideInitialIndex)
+  );
   const visibleSlideTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleNext = () => {
-    setCurrentSlide((prevSlide) =>
-      prevSlide === slides.length - 1 ? 0 : prevSlide + 1
-    );
+    if (isControlled) {
+      onSlideChange?.("next");
+    } else {
+      setCurrentSlide((prevSlide) =>
+        prevSlide === slides.length - 1 ? 0 : prevSlide + 1
+      );
+    }
   };
 
   const handlePrev = () => {
-    setCurrentSlide((prevSlide) =>
-      prevSlide === 0 ? slides.length - 1 : prevSlide - 1
-    );
+    if (isControlled) {
+      onSlideChange?.("prev");
+    } else {
+      setCurrentSlide((prevSlide) =>
+        prevSlide === 0 ? slides.length - 1 : prevSlide - 1
+      );
+    }
   };
 
-  useEffect(() => {
+  const clearVisibleTimerRef = useCallback(() => {
     if (visibleSlideTimerRef.current) {
       clearTimeout(visibleSlideTimerRef.current);
+      visibleSlideTimerRef.current = null;
     }
+  }, []);
+
+  useEffect(() => {
+    clearVisibleTimerRef();
     visibleSlideTimerRef.current = setTimeout(
       () => setVisibleSlide(currentSlide),
       500
     );
-  }, [currentSlide]);
+
+    if (!isControlled) {
+      onSlideChange?.(currentSlide);
+    }
+  }, [currentSlide, clearVisibleTimerRef, onSlideChange, isControlled]);
 
   useEffect(() => {
-    const currentIndex = slides?.findIndex((item) => item?.id === sectionId);
-    if (currentIndex !== -1) {
-      setCurrentSlide(currentIndex);
+    if (isControlled) {
+      setCurrentSlide(activeSlideIndex);
     }
-  }, [sectionId]);
+  }, [activeSlideIndex, isControlled]);
+
+  useEffect(() => clearVisibleTimerRef, []);
 
   return (
     <div className="w-screen overflow-hidden pt-20 md:relative md:h-screen">
@@ -74,7 +126,7 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
             key={index}
             className={cn(
               "duration-250 h-full w-screen overflow-hidden bg-charcoal transition-all ease-anticipate md:blur-lg",
-              { "!blur-[0px]": visibleSlide == index }
+              { "!blur-[0px]": visibleSlide === index }
             )}
           >
             {Slide}
