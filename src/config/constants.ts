@@ -6,16 +6,16 @@ const PROJECTS = [
     image: "/images/projects/wptPlay.png",
   },
   {
-    title: "Casino Lobby",
-    name: "casinoLobby",
-    link: "https://casino-lobby-dev.a5labsapp.co/",
-    image: "/images/projects/casinoLobby.png",
-  },
-  {
     title: "Casino CMS",
     name: "casinoCms",
     link: "https://docs.google.com/document/d/10PfbbCIEF0SC020m3R_vBd6C0EKNwCbul2E_X1dXxtw/",
     image: "/images/projects/casinoCms.png",
+  },
+  {
+    title: "Casino Lobby",
+    name: "casinoLobby",
+    link: "https://casino-lobby-dev.a5labsapp.co/",
+    image: "/images/projects/casinoLobby.png",
   },
   {
     title: "WPT Global",
@@ -29,7 +29,6 @@ const PROJECTS = [
     link: "https://docs.google.com/document/d/1QyWUGF8XigvNtZ_bsidATKtW4VsrUUhNhj3JsCe8F3w",
     image: "/images/projects/wptgCms.png",
   },
-
   {
     title: "WPTG Promo",
     name: "wptgPromo",
@@ -49,16 +48,10 @@ const PROJECTS = [
     image: "/images/projects/wptCms.png",
   },
   {
-    title: "My Portfolio",
-    name: "devPortfolio",
-    link: "/",
-    image: "/images/projects/devPortfolio.png",
-  },
-  {
-    title: "Sosh Nft",
-    name: "soshNft",
-    link: "https://www.soshnft.io/",
-    image: "/images/projects/soshNft.png",
+    title: "Wethio NFT",
+    name: "wethioNft",
+    link: "https://nft.wethiox.io/",
+    image: "/images/projects/collegeDisha.png",
   },
   {
     title: "Distinct",
@@ -78,12 +71,6 @@ const PROJECTS = [
     link: "https://gamavrs.com/moments-auction/about",
     image: "/images/projects/momentNft.png",
   },
-  {
-    title: "College Disha",
-    name: "collegeDisha",
-    link: "https://www.collegedisha.com/",
-    image: "/images/projects/collegeDisha.png",
-  },
 ];
 
 const SKILLS = [
@@ -101,20 +88,17 @@ const SKILLS = [
   { name: "CSS", value: "/images/techStack/CSS3.svg" },
 ];
 
-const EMAIL_ID = "devashishtrehan@gmail.com";
-
 export const SUBJECT_DATA = {
-  name: "Devashish Trehan",
+  name: "Siddharth Badola",
   image: "/images/dev-1.png",
   address: "",
-  mobile_number: "9548727092",
-  email_id: EMAIL_ID,
+  mobile_number: "8447751658",
+  email_id: "siddharth.badola97@gmail.com",
   resume: "/files/devashish_resume.pdf",
   social_media_links: {
-    github: "https://github.com/devashish931",
+    github: "https://github.com/siddharthBadola",
     linkedin: "https://www.linkedin.com/in/devashish-trehan-9347a1173/",
-    email: EMAIL_ID,
-    buyMeCoffee: "https://www.buymeacoffee.com/devTrehan",
+    email: "siddharth.badola97@gmail.com",
   },
   projects: PROJECTS,
   Skills: SKILLS,

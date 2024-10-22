@@ -1,7 +1,7 @@
 import { usePrevious } from "@/hooks/usePrevious";
 import { ValueOf } from "@/lib/types";
 import cn from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const CursorVariants = {
   default: "default",
@@ -24,12 +24,31 @@ const Cursor: React.FC = () => {
   >(CursorDirections.left);
   const prevCursorVariant =
     usePrevious<ValueOf<typeof CursorVariants>>(cursorVariant);
+  const cursorWrapperEl = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
+      let left = e.clientX;
+      let top = e.clientY;
+      // "firstElementChild" used to support default cursor pointer state
+      const wrapperEl = cursorWrapperEl.current?.firstElementChild;
+
+      if (wrapperEl) {
+        const htmlEl = document.getElementsByTagName("html")[0]!;
+        const { width, height } = wrapperEl.getBoundingClientRect();
+        left = Math.max(
+          width / 2,
+          Math.min(htmlEl.clientWidth - width / 2, left)
+        );
+        top = Math.max(
+          height / 2,
+          Math.min(htmlEl.clientHeight - height / 2, top)
+        );
+      }
+
       setCursorStyle({
-        left: `${e.clientX}px`,
-        top: `${e.clientY}px`,
+        left: `${left}px`,
+        top: `${top}px`,
       });
     };
 
@@ -66,7 +85,6 @@ const Cursor: React.FC = () => {
     const body = document.getElementsByTagName("body")[0];
 
     if (body) {
-      body.style.cursor = "none";
       body.addEventListener("mousemove", handleMouseMove);
       body.addEventListener("mouseenter", handleMouseEnter, true);
       body.addEventListener("mouseleave", handleMouseLeave, true);
@@ -74,7 +92,6 @@ const Cursor: React.FC = () => {
 
     return () => {
       if (body) {
-        body.style.cursor = "default";
         body.removeEventListener("mousemove", handleMouseMove);
         body.removeEventListener("mouseenter", handleMouseEnter, true);
         body.removeEventListener("mouseleave", handleMouseLeave, true);
@@ -88,7 +105,7 @@ const Cursor: React.FC = () => {
         return (
           <div
             className={cn(
-              "relative flex flex h-10 w-20 items-center",
+              "relative flex h-10 w-20 items-center",
               cursorDirection === CursorDirections.left
                 ? "animate-bounce-left"
                 : "animate-bounce-right"
@@ -111,7 +128,7 @@ const Cursor: React.FC = () => {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-400 opacity-85"></span>
             <span
               className={cn(
-                "relative flex inline-flex h-8 w-8 items-center justify-center rounded-full border border-yellow-400/80 bg-yellow-400/50",
+                "relative inline-flex h-8 w-8 items-center justify-center rounded-full border border-yellow-400/80 bg-yellow-400/50",
                 {
                   "before:h-2 before:w-2 before:rounded-full before:bg-yellow-400/50":
                     cursorVariant === CursorVariants.pointer,
@@ -131,6 +148,7 @@ const Cursor: React.FC = () => {
         left: cursorStyle.left,
         transform: "translate(-50%, -50%)",
       }}
+      ref={cursorWrapperEl}
     >
       {renderCursor()}
     </div>

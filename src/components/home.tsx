@@ -49,14 +49,13 @@ const Home = (props: SectionProps) => {
       <div className="order-1 my-8 lg:order-2">
         <div className="bevel-clip mx-auto flex w-fit items-center justify-center bg-primary bg-opacity-20 p-3">
           <div className="bevel-clip -translate-y-2 translate-x-2 overflow-hidden bg-charcoal bg-opacity-80">
-            <Image
+            {/* <Image
               src={SUBJECT_DATA.image}
               alt="profile"
               draggable={false}
-              width={600}
-              height={600}
-              className="scale-[1.02]"
-            />
+              width={350}
+              height={467}
+            /> */}
           </div>
         </div>
       </div>
