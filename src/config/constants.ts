@@ -97,8 +97,9 @@ export const SUBJECT_DATA = {
   resume: "/files/devashish_resume.pdf",
   social_media_links: {
     github: "https://github.com/siddharthBadola",
-    linkedin: "https://www.linkedin.com/in/devashish-trehan-9347a1173/",
+    linkedin: "https://www.linkedin.com/in/siddharth-badola-097230210/",
     email: "siddharth.badola97@gmail.com",
+    buyMeCoffee: "",
   },
   projects: PROJECTS,
   Skills: SKILLS,

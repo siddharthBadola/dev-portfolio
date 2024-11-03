@@ -17,7 +17,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
   return (
     <h2
       className={cn(
-        "mb-4 flex items-center text-3xl font-semibold text-white sm:mb-6 sm:text-5xl md:mb-8 ",
+        "mb-4 flex items-center text-3xl font-semibold text-white sm:mb-6 sm:text-5xl md:mb-0 ",
         {
           "before:mr-2 before:text-primary before:content-['#']": prepend,
           "after:ml-4 after:inline-flex after:h-1 after:w-40 after:bg-primary":
