@@ -94,7 +94,7 @@ export const SUBJECT_DATA = {
   address: "",
   mobile_number: "8447751658",
   email_id: "siddharth.badola97@gmail.com",
-  resume: "/files/devashish_resume.pdf",
+  resume: "/files/siddharth_badola_resume.pdf",
   social_media_links: {
     github: "https://github.com/siddharthBadola",
     linkedin: "https://www.linkedin.com/in/siddharth-badola-097230210/",
