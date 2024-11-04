@@ -51,7 +51,7 @@ const PROJECTS = [
     title: "Wethio NFT",
     name: "wethioNft",
     link: "https://nft.wethiox.io/",
-    image: "/images/projects/collegeDisha.png",
+    image: "/images/projects/wethioNft.png",
   },
   {
     title: "Distinct",
