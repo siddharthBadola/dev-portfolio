@@ -9,6 +9,7 @@ import SectionLayout from "./sectionLayout";
 import { SectionProps } from "@/lib/types";
 import Link from "next/link";
 import { FaSpinner } from "react-icons/fa";
+import cn from "@/lib/utils";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email().required("Please input email"),
@@ -80,14 +81,19 @@ const Contact = (props: SectionProps) => {
               }
             }}
           >
-            {({ errors, touched, handleSubmit, isSubmitting }) => (
+            {({ errors, touched, handleSubmit, isSubmitting, isValid }) => (
               <Form onSubmit={handleSubmit} className="flex flex-col gap-8 p-0">
                 <div className="flex flex-col gap-1">
                   <label className="font-semibold">Name:</label>
                   <Field
                     name="name"
                     placeholder="Enter Name"
-                    className="h-12 w-full border border-slate-500 bg-transparent px-4 py-2 outline-none"
+                    className={cn(
+                      "h-12 w-full border border-slate-500 bg-transparent px-4 py-2 outline-none",
+                      {
+                        "border-red-600": !!(errors.name && touched.name),
+                      }
+                    )}
                   />
                   {errors.name && touched.name && (
                     <span className="px-4 text-red-500">{errors.name}</span>
@@ -99,7 +105,12 @@ const Contact = (props: SectionProps) => {
                     name="email"
                     type="email"
                     placeholder="Enter Email"
-                    className="h-12 w-full border border-slate-500 bg-transparent px-4 py-2 outline-none"
+                    className={cn(
+                      "h-12 w-full border border-slate-500 bg-transparent px-4 py-2 outline-none",
+                      {
+                        "border-red-600": !!(errors.email && touched.email),
+                      }
+                    )}
                   />
                   {errors.email && touched.email && (
                     <span className="px-4 text-red-500">{errors.email}</span>
@@ -112,13 +123,18 @@ const Contact = (props: SectionProps) => {
                     as="textarea"
                     rows={4}
                     placeholder="Enter Message"
-                    className="w-full border border-slate-500 bg-transparent px-4 py-2 outline-none"
+                    className={cn(
+                      "w-full border border-slate-500 bg-transparent px-4 py-2 outline-none",
+                      {
+                        "border-red-600": !!(errors.message && touched.message),
+                      }
+                    )}
                   />
                   {errors.message && touched.message && (
                     <span className="px-4 text-red-500">{errors.message}</span>
                   )}
                 </div>
-                <Button disabled={isSubmitting}>
+                <Button disabled={isSubmitting || !isValid}>
                   {isSubmitting ? (
                     <>
                       {" "}
