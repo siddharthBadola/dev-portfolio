@@ -89,10 +89,10 @@ const Contact = (props: SectionProps) => {
                     name="name"
                     placeholder="Enter Name"
                     className={cn(
-                      "h-12 w-full border border-slate-500 bg-transparent px-4 py-2 outline-none",
-                      {
-                        "border-red-600": !!(errors.name && touched.name),
-                      }
+                      "h-12 w-full border  bg-transparent px-4 py-2 outline-none",
+                      !!(errors.name && touched.name)
+                        ? "border-red-600"
+                        : "border-slate-500"
                     )}
                   />
                   {errors.name && touched.name && (
@@ -106,10 +106,10 @@ const Contact = (props: SectionProps) => {
                     type="email"
                     placeholder="Enter Email"
                     className={cn(
-                      "h-12 w-full border border-slate-500 bg-transparent px-4 py-2 outline-none",
-                      {
-                        "border-red-600": !!(errors.email && touched.email),
-                      }
+                      "h-12 w-full border bg-transparent px-4 py-2 outline-none",
+                      !!(errors.email && touched.email)
+                        ? "border-red-600"
+                        : "border-slate-500"
                     )}
                   />
                   {errors.email && touched.email && (
@@ -125,9 +125,9 @@ const Contact = (props: SectionProps) => {
                     placeholder="Enter Message"
                     className={cn(
                       "w-full border border-slate-500 bg-transparent px-4 py-2 outline-none",
-                      {
-                        "border-red-600": !!(errors.message && touched.message),
-                      }
+                      !!(errors.message && touched.message)
+                        ? "border-red-600"
+                        : "border-slate-500"
                     )}
                   />
                   {errors.message && touched.message && (
