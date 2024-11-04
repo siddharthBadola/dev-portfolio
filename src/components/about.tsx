@@ -16,20 +16,20 @@ const About = (props: SectionProps) => {
         <p>
           As a dedicated Frontend Developer, I am deeply passionate and
           enthusiastic about crafting exceptional web applications. With a solid
-          background in web development spanning over 4+ years, I have
+          background in web development spanning over 3+ years, I have
           successfully worked on a range of real-world projects, showcasing my
           proficiency in HTML, CSS, JavaScript, ReactJS, NextJS, TypeScript,
           Redux, Web3.js, React Context API.
         </p>
         <p>
-          My educational foundation includes a Bachelors of Computer Applications,
-          providing me with a well-rounded understanding of the field.
-          Additionally. What sets me apart is my innate ability to quickly grasp new concepts,
-          coupled with a keen problem-solving mindset. My focus is firmly fixed on achieving
-          results, and I approach challenges with an unwavering determination to
-          excel. My thirst for knowledge drives me to continually learn and
-          adapt to emerging technologies, ensuring that my skillset remains
-          up-to-date and relevant.
+          My educational foundation includes a Bachelor of Technology (B.Tech)
+          in Computer Science, providing me with a well-rounded understanding of
+          the field. What sets me apart is my innate ability to quickly grasp
+          new concepts, coupled with a keen problem-solving mindset. My focus is
+          firmly fixed on achieving results, and I approach challenges with an
+          unwavering determination to excel. My thirst for knowledge drives me
+          to continually learn and adapt to emerging technologies, ensuring that
+          my skillset remains up-to-date and relevant
         </p>
         <p>
           I am excited about the opportunity to contribute my expertise and work
